@@ -22,7 +22,7 @@ def predict():
         result=svc.predict(data)
         print(result)
         if result[0]==0:
-            img_url_setosa=url_for('static', filename='photos/iris-setosa.png') 
+            img_url_setosa=url_for('static', filename='photos/lris-setosa.png') 
             return render_template("main.html",prediction="Iris Setosa",source=img_url_setosa)
         elif result[0]==1:
             img_url_versicolor=url_for('static', filename='photos/versicolor.png') 
