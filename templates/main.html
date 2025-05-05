@@ -153,7 +153,9 @@
     </div>
     <div id="pred">
       <h2 id="pr">our prediction is : {{prediction}}</h2>
-      <img src={{source}} id="im"/>
+      {% if source %}
+    <img src="{{ source }}" alt="Predicted Iris Image">
+      {% endif %}
     </div>
   </div>
 </body>
