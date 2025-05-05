@@ -9,9 +9,9 @@ app=application
 
 @app.route("/",methods=['POST','GET'])
 def predict():
-    img_url_setosa=url_for('static', filename='photos/iris-setosa.png') 
-    img_url_versicolor=url_for('static', filename='photos/versicolor.png') 
-    img_url_virginica=url_for('static', filename='photos/virginica.png')
+
+  
+
     if request.method=="POST":
         SL=float(request.form.get("sepal_length"))
         SW=float(request.form.get("sepal_width"))
@@ -22,10 +22,13 @@ def predict():
         result=svc.predict(data)
         print(result)
         if result[0]==0:
+            img_url_setosa=url_for('static', filename='photos/iris-setosa.png') 
             return render_template("main.html",prediction="Iris Setosa",source=img_url_setosa)
         elif result[0]==1:
+            img_url_versicolor=url_for('static', filename='photos/versicolor.png') 
             return render_template("main.html",prediction="Iris Versicolor",source=img_url_versicolor)
         elif result[0]==2:
+            img_url_virginica=url_for('static', filename='photos/virginica.png')
             return render_template("main.html",prediction="Iris Virginica",source=img_url_virginica)
 
     return render_template("main.html") 
